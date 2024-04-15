@@ -6,8 +6,12 @@ import '@openzeppelin/hardhat-upgrades'
 import * as dotenv from 'dotenv'
 dotenv.config()
 
-const { DEPLOYER_PRIVATE_KEY, ETHERSCAN_API_KEY, DEPLOYER_BASE_PRIVATE_KEY } =
-  process.env
+const {
+  DEPLOYER_PRIVATE_KEY,
+  ETHERSCAN_API_KEY,
+  DEPLOYER_BASE_PRIVATE_KEY,
+  BASESCAN_API_KEY,
+} = process.env
 const providerApiKey =
   process.env.ALCHEMY_API_KEY || 'oKxs-03sij-U_N0iOlrSsZFr29-IqbuF'
 
@@ -72,6 +76,7 @@ const config: HardhatUserConfig = {
   etherscan: {
     apiKey: {
       mode: ETHERSCAN_API_KEY as string,
+      'base-mainnet': BASESCAN_API_KEY as string,
     },
     customChains: [
       {
@@ -88,6 +93,22 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: 'https://explorer.mode.network/api',
           browserURL: 'https://explorer.mode.network/',
+        },
+      },
+      {
+        network: 'base-sepolia',
+        chainId: 84532,
+        urls: {
+          apiURL: 'https://api-sepolia.basescan.org/api',
+          browserURL: 'https://sepolia.basescan.org',
+        },
+      },
+      {
+        network: 'base-mainnet',
+        chainId: 8453,
+        urls: {
+          apiURL: 'https://api.basescan.org/api',
+          browserURL: 'https://basescan.org',
         },
       },
     ],

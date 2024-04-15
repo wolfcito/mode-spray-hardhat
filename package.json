@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "flattenMode": "npx hardhat flatten ./contracts/ModeSpray.sol  > out/ModeSprayFlatten.sol"
+    "flattenMode": "npx hardhat flatten ./contracts/ModeSpray.sol  > out/ModeSprayFlatten.sol",
+    "flattenBase": "npx hardhat flatten ./contracts/BaseSpray.sol  > out/BaseSprayFlatten.sol"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
