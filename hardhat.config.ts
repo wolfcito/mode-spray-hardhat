@@ -34,7 +34,7 @@ const config: HardhatUserConfig = {
     },
     // base chains
     // for mainnet
-    'base-': {
+    'base-mainnet': {
       url: 'https://mainnet.base.org',
       accounts: [DEPLOYER_BASE_PRIVATE_KEY as string],
       gasPrice: 1000000000,
