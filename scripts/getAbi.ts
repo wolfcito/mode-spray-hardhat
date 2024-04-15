@@ -1,7 +1,7 @@
 import { artifacts } from 'hardhat'
 
 async function main() {
-  const contractName = 'ModeSpray'
+  const contractName = 'USDCCoin' // 'BaseSpray', USDCCoin, ModeSpray
   const contractArtifact = await artifacts.readArtifact(contractName)
 
   console.log('Contract ABI:')
