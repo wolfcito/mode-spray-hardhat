@@ -11,6 +11,7 @@ const {
   ETHERSCAN_API_KEY,
   DEPLOYER_BASE_PRIVATE_KEY,
   BASESCAN_API_KEY,
+  OPSCAN_API_KEY,
 } = process.env
 const providerApiKey =
   process.env.ALCHEMY_API_KEY || 'oKxs-03sij-U_N0iOlrSsZFr29-IqbuF'
@@ -55,6 +56,18 @@ const config: HardhatUserConfig = {
       accounts: [DEPLOYER_BASE_PRIVATE_KEY as string],
       gasPrice: 1000000000,
     },
+    'optimism-sepolia': {
+      url: 'https://sepolia.optimism.io',
+      chainId: 11155420,
+      accounts: [DEPLOYER_PRIVATE_KEY as string], //BE VERY CAREFUL, DO NOT PUSH THIS TO GITHUB
+      gasPrice: 10000,
+    },
+    optimism: {
+      url: 'https://mainnet.optimism.io',
+      chainId: 10,
+      accounts: [DEPLOYER_PRIVATE_KEY as string], //BE VERY CAREFUL, DO NOT PUSH THIS TO GITHUB
+      // gasPrice: 10000,
+    },
   },
   solidity: {
     version: '0.8.20',
@@ -77,6 +90,7 @@ const config: HardhatUserConfig = {
     apiKey: {
       mode: ETHERSCAN_API_KEY as string,
       'base-mainnet': BASESCAN_API_KEY as string,
+      optimism: OPSCAN_API_KEY as string,
     },
     customChains: [
       {
@@ -109,6 +123,22 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: 'https://api.basescan.org/api',
           browserURL: 'https://basescan.org',
+        },
+      },
+      {
+        network: 'optimism-sepolia',
+        chainId: 11155420,
+        urls: {
+          apiURL: 'https://sepolia-optimistic.etherscan.io/api',
+          browserURL: 'https://sepolia-optimistic.etherscan.io/',
+        },
+      },
+      {
+        network: 'optimism',
+        chainId: 10,
+        urls: {
+          apiURL: 'https://optimistic.etherscan.io/api',
+          browserURL: 'https://optimistic.etherscan.io/',
         },
       },
     ],
