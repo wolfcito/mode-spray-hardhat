@@ -68,6 +68,18 @@ const config: HardhatUserConfig = {
       accounts: [DEPLOYER_PRIVATE_KEY as string], //BE VERY CAREFUL, DO NOT PUSH THIS TO GITHUB
       // gasPrice: 10000,
     },
+    'scroll-sepolia': {
+      url: 'https://sepolia-rpc.scroll.io',
+      chainId: 534351,
+      accounts: [DEPLOYER_PRIVATE_KEY as string], //BE VERY CAREFUL, DO NOT PUSH THIS TO GITHUB
+      gasPrice: 1000000000,
+    },
+    scroll: {
+      url: 'https://rpc.scroll.io',
+      chainId: 534352,
+      accounts: [DEPLOYER_PRIVATE_KEY as string], //BE VERY CAREFUL, DO NOT PUSH THIS TO GITHUB
+      gasPrice: 1000000000,
+    },
   },
   solidity: {
     version: '0.8.20',
@@ -139,6 +151,22 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: 'https://optimistic.etherscan.io/api',
           browserURL: 'https://optimistic.etherscan.io/',
+        },
+      },
+      {
+        network: 'scroll-sepolia',
+        chainId: 534351,
+        urls: {
+          apiURL: 'https://sepolia.scrollscan.com/api',
+          browserURL: 'https://sepolia.scrollscan.com/',
+        },
+      },
+      {
+        network: 'scroll',
+        chainId: 534352,
+        urls: {
+          apiURL: 'https://scrollscan.com/api',
+          browserURL: 'https://scrollscan.com/',
         },
       },
     ],
