@@ -1,11 +1,66 @@
-# Spray contracts
+## Foundry
+
+**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+
+Foundry consists of:
+
+-   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
+-   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
+-   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
+-   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+
+## Documentation
+
+https://book.getfoundry.sh/
+
+## Usage
+
+### Build
 
 ```shell
-Testnet:
+$ forge build
+```
 
-ModeSpray Sepolia deployed to: 0xDBA7D42BAC31Fa58A6Ab7ffE95D9FfA4bD398A0f
+### Test
 
-Mainnet:
+```shell
+$ forge test
+```
 
-ModeSpray Mainnet deployed to: 0xd988097fb8612cc24eeC14542bC03424c656005f
+### Format
+
+```shell
+$ forge fmt
+```
+
+### Gas Snapshots
+
+```shell
+$ forge snapshot
+```
+
+### Anvil
+
+```shell
+$ anvil
+```
+
+### Deploy
+
+```shell
+$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+```
+
+### Cast
+
+```shell
+$ cast <subcommand>
+```
+
+### Help
+
+```shell
+$ forge --help
+$ anvil --help
+$ cast --help
 ```
