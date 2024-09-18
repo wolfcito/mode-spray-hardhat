@@ -127,7 +127,7 @@ contract BaseSprayTest is Test {
         assertEq(balanceAfter, 0 ether);
     }
 
-    function test_() public {
+    function test_TokenDispersedEvent() public {
         address[] memory recipients = new address[](2);
         recipients[0] = address(0x00011);
         recipients[1] = address(0x00012);
